@@ -13,7 +13,12 @@ import "dotenv/config";
 
 const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kanbas";
 console.log(CONNECTION_STRING);
-mongoose.connect(CONNECTION_STRING);
+try {
+    await mongoose.connect(CONNECTION_STRING);
+} catch (error) {
+    console.error("Error connecting to MongoDB");
+    console.error(error);
+}
 const app = express();
 app.use(cors(
     {
