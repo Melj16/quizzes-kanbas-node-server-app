@@ -2,10 +2,11 @@ import mongoose from "mongoose";
 const schema = new mongoose.Schema(
     {
         quizId: String,
+        type: String,
         title: String,
         question: String,
         answer: String,
-        points: String,
+        points: Number,
         choices: [String],
         
     },
