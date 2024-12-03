@@ -7,8 +7,18 @@ const quizSchema = new mongoose.Schema(
         due: String,
         available: String,
         until: String,
+        for: String,
         number_of_questions: String,
         points: String,
+        time_limit: Number,
+        multiple_attempts: Boolean,
+        show_answers: Boolean,
+        one_at_a_time: Boolean,
+        lock_questions_after_answering: Boolean,
+        web_cam: Boolean,
+        shuffle_questions: Boolean,
+        access_code: String,
+        published: Boolean,
     },
     { collection: "quizzes" }
 );
