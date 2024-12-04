@@ -9,6 +9,6 @@ export function createQuestion(module) {
     delete question._id;
     return model.create(question);
 }
-export function findQuestionsForQuiz(targetId) {
-    return model.findAll({ where: { quizId: targetId } });
+export function findQuestionsForQuiz(quizId) {
+    return model.find({ quiz: quizId });
 }
