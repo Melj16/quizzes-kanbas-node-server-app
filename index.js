@@ -10,6 +10,7 @@ import AssignmentRoutes from './Kanbas/Assignments/routes.js';
 import EnrollmentsRoutes from './Kanbas/Enrollments/routes.js';
 import QuizRoutes from './Kanbas/Quizzes/routes.js';
 import QuestionRoutes from './Kanbas/Questions/routes.js';
+import AnswerRoutes from './Kanbas/Answers/routes.js';
 import session from "express-session";
 import "dotenv/config";
 
@@ -50,6 +51,7 @@ AssignmentRoutes(app);
 EnrollmentsRoutes(app);
 QuizRoutes(app);
 QuestionRoutes(app);
+AnswerRoutes(app);
 Hello(app);
 Lab5(app);
 app.listen(process.env.PORT || 4000);
