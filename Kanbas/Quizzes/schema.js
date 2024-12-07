@@ -10,7 +10,7 @@ const quizSchema = new mongoose.Schema(
         until: String,
         assignment_group: String,
         for: String,
-        number_of_questions: String,
+        number_of_questions: Number,
         points: Number,
         time_limit: Number,
         multiple_attempts: Boolean,

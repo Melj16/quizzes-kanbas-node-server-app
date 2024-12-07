@@ -17,6 +17,14 @@ export default function AnswerRoutes(app) {
         const status = await answersDao.updateQuestion(questionId, questionUpdates);
         res.send(status);
     });
+    app.put("/api/quizzes/:quizId/user/:userId/answers/update", async (req, res) => {
+        const { quizId, userId } = req.params;
+        console.log(req.body);
+        const { updateAnswer } = req.body;
+        console.log(updateAnswer);
+        const status = await answersDao.updateAnswer(quizId, userId, updateAnswer);
+        res.send(status);
+    });
     app.put("/api/quizzes/:quizId/user/:userId/answers/finished", async (req, res) => {
         const { quizId, userId } = req.params;
         const status = await answersDao.addAttempt(quizId, userId);
