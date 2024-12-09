@@ -5,9 +5,8 @@ export function updateQuestion(questionId, questionUpdates) {
 export function deleteQuestion(questionId) {
     return model.deleteOne({ _id: questionId });
 }
-export function createQuestion(module) {
-    delete question._id;
-    return model.create(question);
+export function createQuestionForQuiz(quizId, question) {
+    return model.create({quiz: quizId, ...question});
 }
 export function findQuestionsForQuiz(quizId) {
     return model.find({ quiz: quizId });

@@ -8,7 +8,7 @@ export default function QuestionRoutes(app) {
     app.post("/api/quizzes/:quizId/questions", async (req, res) => {
         const { quizId } = req.params;
         const question = req.body;
-        const status = await questionsDao.createQuestion(quizId, question);
+        const status = await questionsDao.createQuestionForQuiz(quizId, question);
         res.send(status);
     });
     app.put("/api/questions/:questionId", async (req, res) => {
