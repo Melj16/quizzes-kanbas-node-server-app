@@ -30,8 +30,14 @@ export async function addAttempt(quizId, userId) {
         answer.score = 0;
         let questions = await findQuestionsForQuiz(quizId);
         questions.forEach(question => {
-            if (question.answer === answer.answers.get(question._id)) {
-                answer.score = answer.score + question.points;
+            if (question.type === "Fill-in-the-Blank") {
+                if (question.choices.includes(answer.answers.get(question._id))) {
+                    answer.score = answer.score + question.points;
+                }
+            } else {
+                if (question.answer === answer.answers.get(question._id)) {
+                    answer.score = answer.score + question.points;
+                }
             }
         });
         return answer.save();
