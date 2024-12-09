@@ -43,7 +43,8 @@ export async function newAttempt(quizId, userId) {
     const quiz = await quizModel.findById(quizId);
     const answer = await model.findOne({ quiz: quizId, user: userId });
     if (answer) {
-        if (quiz.number_of_attempts > answer.attempt || quiz.number_of_attempts === 0) {
+        if ((quiz.number_of_attempts > answer.attempt || quiz.number_of_attempts === 0)
+            && (new Date(quiz.until) > new Date() && new Date(quiz.available) < new Date() && new Date(quiz.due) > new Date())) {
             answer.answers = {};
             answer.finished = false;
             return answer.save();
